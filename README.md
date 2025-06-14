@@ -14,8 +14,7 @@ This project simplifies the selection of medium-voltage cable terminations and c
 
 - Cable insulation outer diameter (O.D.)
 - Conductor cross-sectional area (bitola)
-- Presence or absence of a test point
-- Cable manufacturer (optional, for estimating O.D. if unknown)
+- Cable manufacturer (optional, for estimating O.D. if unknown), future 
 
 The goal is to support internal technical sales and engineering workflows, and eventually offer a web-based interface to assist external users.
 
