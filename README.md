@@ -1,3 +1,9 @@
+## Versão atual: v0.1
+
+### Como rodar (local/Codespaces)
+1. `pip install -r requirements.txt`  
+2. `streamlit run streamlit_ui/app.py`  
+
 # Medium Voltage Cable Accessory Selector
 
 A smart, data-driven tool to help technical and commercial teams select the correct medium-voltage cable accessories based on cable characteristics.
