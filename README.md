@@ -1,4 +1,4 @@
-## Versão atual: v0.1
+## Versão atual: v0.2
 
 ### Como rodar (local/Codespaces)
 1. `pip install -r requirements.txt`  
@@ -14,10 +14,18 @@ This project simplifies the selection of medium-voltage cable terminations and c
 
 - Cable insulation outer diameter (O.D.)
 - Conductor cross-sectional area (bitola)
-- Cable manufacturer (optional, for estimating O.D. if unknown), future 
+- Cable manufacturer ( for estimating O.D. if unknown), future 
 
 The goal is to support internal technical sales and engineering workflows, and eventually offer a web-based interface to assist external users.
 
+Now Supports:
+ - Cold Shrink Terminations (CSTO) by specifying:
+    ->Cable insulation O.D (mm), or
+    ->Conductor cross-section (mm²) + manufacturer → estimates O.D.
+- Connectors:
+    -> Shear-bolt terminals
+    -> Compression lugs by conductor size (mm²).
+    
 # Why This Project
 
 Selecting the right accessory for a specific cable type can be error-prone due to overlapping specs, multiple part numbers, and lack of cable O.D. information. This tool:
