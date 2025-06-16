@@ -52,6 +52,7 @@ else:
     od = estimate_od(voltage, bitola, fabricante)
     st.info(f"Ø estimado: {od:.1f} mm — bitola {bitola} mm², fabricante {fabricante}")
 
+# Botão de busca dispara todo o bloco abaixo
 if st.button("Buscar Terminação"):
     matched = df_csto[
         (df_csto["Voltage Class"] == voltage) &
@@ -59,7 +60,36 @@ if st.button("Buscar Terminação"):
         (df_csto["OD Max (mm)"] >= od)
     ]
     if not matched.empty:
+        # Exibe a tabela de CSTO
         st.success("Terminação(s) compatível(is):")
         st.table(matched[["Part Number", "OD Min (mm)", "OD Max (mm)"]])
+
+        # === Seletor de conector só dentro desse bloco ===
+        st.subheader("Selecione o conector")
+        conn_type = st.selectbox("Tipo de conector:", ["shear-bolt", "compression"])
+
+        # Se for compression, perguntar material
+        material = None
+        if conn_type == "compression":
+            df_conn = pd.read_csv("mapping_tables/connector_selection_table.csv")
+            materials = sorted(df_conn["Material"].dropna().unique())
+            material = st.selectbox("Material do lug:", options=materials)
+
+        # Reutiliza a mesma bitola do usuário (quando em modo bitola+marca)
+        conductor_size = bitola if modo == "Por Bitola + Marca" else st.number_input(
+            "Bitola do condutor (mm²):",
+            min_value=int(df_bitola["Bitola (mm²)"].min()),
+            max_value=int(df_bitola["Bitola (mm²)"].max()),
+            value=int(df_bitola["Bitola (mm²)"].min())
+        )
+
+        from tools.connector_matcher import suggest_connector
+        conn_df = suggest_connector(conductor_size, conn_type, material)
+
+        if not conn_df.empty:
+            st.success("Conector(s) compatível(is):")
+            st.table(conn_df)
+        else:
+            st.error("Nenhum conector encontrado para esses parâmetros.")
     else:
         st.error("Nenhuma terminação encontrada para esses parâmetros.")
