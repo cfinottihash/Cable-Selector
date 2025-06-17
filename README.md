@@ -1,8 +1,9 @@
-## Versão atual: v0.2
+## Versão atual: v0.3
 
-### Como rodar (local/Codespaces)
-1. `pip install -r requirements.txt`  
-2. `streamlit run streamlit_ui/app.py`  
+### Run locally / Codespaces
+```bash
+pip install -r requirements.txt
+streamlit run streamlit_ui/app.py 
 
 # Medium Voltage Cable Accessory Selector
 
@@ -10,27 +11,33 @@ A smart, data-driven tool to help technical and commercial teams select the corr
 
 ##  Project Overview
 
-This project simplifies the selection of medium-voltage cable terminations and connectors by using structured logic based on:
+The selector matches a cable to the right accessory using only:
+1. Voltage class
+2. Either the measured insulation O.D (Øiso) or the conductor cross-section (mm²). The app then estimates Øiso automatically.
 
-- Cable insulation outer diameter (O.D.)
-- Conductor cross-sectional area (bitola)
-- Cable manufacturer ( for estimating O.D. if unknown), future 
+It currently outputs:
+ - Cold-shrink termiations (CSTO)
+ - Connectors (terminal lugs): Shear-bolt lugs, compression lugs (filtered by material and conductor size)
 
-The goal is to support internal technical sales and engineering workflows, and eventually offer a web-based interface to assist external users.
+ Future releases will expand to loadbreak and deadbreak elbows.
 
-Now Supports:
- - Cold Shrink Terminations (CSTO) by specifying:
-    ->Cable insulation O.D (mm), or
-    ->Conductor cross-section (mm²) + manufacturer → estimates O.D.
-- Connectors:
-    -> Shear-bolt terminals
-    -> Compression lugs by conductor size (mm²).
-    
-# Why This Project
+## How the app estimates insulation diameter
+The "rule of thumb" is guaranteed by the standards themselves, so no brand tables are needed.
 
-Selecting the right accessory for a specific cable type can be error-prone due to overlapping specs, multiple part numbers, and lack of cable O.D. information. This tool:
+| Step | Formula / value | Standard reference |
+|------|-----------------|--------------------|
+| **Conductor diameter** | `D_cond = sqrt(4 S / (π · 0.90))`  (class-2 compact conductor, ρ ≈ 0.90) | IEC 60228 |
+| **Insulation thickness** | 8.7/15 kV → **3.0 mm**  •  12/20 kV → **4.0 mm**  •  15/25 kV → **5.5 mm**  •  20/35 kV → **7.5 mm** | IEC 60502-2 §6.2 (Tables 6–7) |
+| **Nominal Ø_iso** | `Ø_iso = D_cond + 2 × t_iso` | Geometry |
+| **Tolerance shown in app** | ± 0.8 mm (≤ 25 kV)  •  ± 1.6 mm (35 kV) | IEC 60502-2 §17.5.2 (−10 % / +15 % on t_iso) |
 
-- Converts product catalogs into structured, searchable data
-- Links cable specs to compatible accessories
-- Builds a logic-based interface for accurate and fast selection
-
+Example – 70 mm², 15/25 kV:
+D<sub>cond</sub> ≈ 11.2 mm → Ø<sub>iso</sub> ≈ 11.2 + 2·5.5 = 22.2 mm
+Displayed in the app: 22.2 mm ± 1.2 mm
+Any IEC-compliant cable of that size will fall inside that band, ensuring the correct termination window.
+##  Why this project matters
+Choosing accessories by eye is risky: overlapping specs, assorted part numbers, missing O.D. data. The selector can:
+ - Turn static catalogs into searcheable tables
+ - Apply IEC logic to fill data gaps
+ - Narrow choices to only what actually fits (fast, repeatable, mistake-proof)
+ Pull requests and issue reports are welcome.
