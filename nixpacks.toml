@@ -1,7 +1,6 @@
 [phases.install]
-# instala as dependências
 command = "pip install -r requirements.txt"
 
 [phases.start]
-# aponte pro seu app dentro de streamlit_ui/
+# point to your actual script path and the $PORT envvar
 command = "streamlit run streamlit_ui/app.py --server.port $PORT"
