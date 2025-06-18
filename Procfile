@@ -1,1 +1,1 @@
-web: streamlit run streamlit/app.py --server.port $PORT
+web: streamlit run streamlit_ui/app.py --server.port $PORT
