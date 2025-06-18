@@ -355,3 +355,30 @@ Voltage,S_mm2,Brand,Cable,OD_iso_mm
 35 kV,300,Altec,Cabo Coppertec,39.6
 35 kV,400,Altec,Cabo Coppertec,42.4
 35 kV,500,Altec,Cabo Coppertec,45.2
+15 kV,25,Cabelauto,MVR90,12.9
+15 kV,35,Cabelauto,MVR90,14.0
+15 kV,50,Cabelauto,MVR90,15.2
+15 kV,70,Cabelauto,MVR90,16.7
+15 kV,95,Cabelauto,MVR90,18.4
+15 kV,120,Cabelauto,MVR90,19.8
+15 kV,150,Cabelauto,MVR90,21.4
+15 kV,185,Cabelauto,MVR90,23.0
+15 kV,240,Cabelauto,MVR90,26.4
+15 kV,300,Cabelauto,MVR90,28.9
+25 kV,35,Cabelauto,MVR90 15/25 kV,20.4
+25 kV,50,Cabelauto,MVR90 15/25 kV,20.2
+25 kV,70,Cabelauto,MVR90 15/25 kV,21.7
+25 kV,95,Cabelauto,MVR90 15/25 kV,23.4
+25 kV,120,Cabelauto,MVR90 15/25 kV,24.8
+25 kV,150,Cabelauto,MVR90 15/25 kV,26.4
+25 kV,185,Cabelauto,MVR90 15/25 kV,28.0
+25 kV,240,Cabelauto,MVR90 15/25 kV,29.4
+25 kV,300,Cabelauto,MVR90 15/25 kV,31.9
+35 kV,50,Cabelauto,MVR90 20/35 kV,25.6
+35 kV,70,Cabelauto,MVR90 20/35 kV,25.7
+35 kV,95,Cabelauto,MVR90 20/35 kV,27.4
+35 kV,120,Cabelauto,MVR90 20/35 kV,28.8
+35 kV,150,Cabelauto,MVR90 20/35 kV,30.4
+35 kV,185,Cabelauto,MVR90 20/35 kV,30.0
+35 kV,240,Cabelauto,MVR90 20/35 kV,32.4
+35 kV,300,Cabelauto,MVR90 20/35 kV,34.9
