@@ -1,3 +1,7 @@
-# nixpacks.toml
+[phases.install]
+# instala as dependências
+command = "pip install -r requirements.txt"
+
 [phases.start]
-command = "streamlit run streamlit/app.py --server.port=$PORT"
+# aponte para o seu script correto; se seu app está em ./app.py, use só “app.py”
+command = "streamlit run app.py --server.port $PORT"
