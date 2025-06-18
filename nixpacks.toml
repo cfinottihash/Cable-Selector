@@ -3,5 +3,5 @@
 command = "pip install -r requirements.txt"
 
 [phases.start]
-# aponte para o seu script correto; se seu app está em ./app.py, use só “app.py”
-command = "streamlit run app.py --server.port $PORT"
+# aponte pro seu app dentro de streamlit_ui/
+command = "streamlit run streamlit_ui/app.py --server.port $PORT"
