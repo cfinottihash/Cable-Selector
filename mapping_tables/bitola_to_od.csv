@@ -1,61 +1,357 @@
-Classe de Tensão, Bitola (mm²), Fabricante, OD Nominal (mm)
-15 kV,16,Induscabos,13.2
-15 kV,25,Induscabos,13.2
-15 kV,35,Induscabos,14.3
-15 kV,50,Induscabos,15.3
-15 kV,70,Induscabos,16.8
-15 kV,95,Induscabos,18.5
-15 kV,120,Induscabos,19.9
-15 kV,150,Induscabos,21.0
-15 kV,185,Induscabos,22.7
-15 kV,240,Induscabos,26.2
-15 kV,300,Induscabos,28.7
-15 kV,400,Induscabos,31.5
-15 kV,500,Induscabos,34.6
-25 kV,16,Induscabos,16.4
-25 kV,25,Induscabos,16.6
-25 kV,35,Induscabos,16.3
-25 kV,50,Induscabos,17.3
-25 kV,70,Induscabos,18.8
-25 kV,95,Induscabos,20.5
-25 kV,120,Induscabos,21.9
-25 kV,150,Induscabos,23.0
-25 kV,185,Induscabos,24.7
-25 kV,240,Induscabos,28.2
-25 kV,300,Induscabos,30.7
-25 kV,400,Induscabos,33.5
-25 kV,500,Induscabos,36.6
-15 kV,16,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,16.8
-15 kV,25,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,17.0
-15 kV,35,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,16.6
-15 kV,50,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,17.7
-15 kV,70,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,19.3
-15 kV,95,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,21.0
-15 kV,120,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,22.5
-15 kV,150,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,24.0
-15 kV,185,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,25.5
-15 kV,240,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,28.9
-15 kV,300,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,31.6
-15 kV,400,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,34.3
-15 kV,500,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,37.4
-25 kV,35,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,20.9
-25 kV,50,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,20.5
-25 kV,70,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,22.3
-25 kV,95,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,23.8
-25 kV,120,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,25.1
-25 kV,150,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,26.5
-25 kV,185,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,28.5
-25 kV,240,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,29.6
-25 kV,300,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,32.0
-25 kV,400,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,34.8
-25 kV,500,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,38.0
-35 kV,50,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,25.9
-35 kV,70,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,26.3
-35 kV,95,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,27.8
-35 kV,120,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,29.1
-35 kV,150,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,30.5
-35 kV,185,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,30.5
-35 kV,240,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,32.6
-35 kV,300,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,35.0
-35 kV,400,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,37.8
-35 kV,500,Prysmian Cabo EPROTENAX COMPACT - 105 ALUMÍNIO,41.0
+Voltage,S_mm2,Brand,Cable,OD_iso_mm
+15 kV,16,Induscabos,Cabo Epronax Slim 105,13.0
+15 kV,25,Induscabos,Cabo Epronax Slim 105,13.2
+15 kV,35,Induscabos,Cabo Epronax Slim 105,14.3
+15 kV,50,Induscabos,Cabo Epronax Slim 105,15.3
+15 kV,70,Induscabos,Cabo Epronax Slim 105,16.8
+15 kV,95,Induscabos,Cabo Epronax Slim 105,18.5
+15 kV,120,Induscabos,Cabo Epronax Slim 105,19.9
+15 kV,150,Induscabos,Cabo Epronax Slim 105,21.0
+15 kV,185,Induscabos,Cabo Epronax Slim 105,22.7
+15 kV,240,Induscabos,Cabo Epronax Slim 105,26.2
+15 kV,300,Induscabos,Cabo Epronax Slim 105,28.7
+15 kV,400,Induscabos,Cabo Epronax Slim 105,31.5
+15 kV,500,Induscabos,Cabo Epronax Slim 105,34.6
+25 kV,35,Induscabos,Cabo Epronax Slim 105,20.7
+25 kV,50,Induscabos,Cabo Epronax Slim 105,20.3
+25 kV,70,Induscabos,Cabo Epronax Slim 105,21.8
+25 kV,95,Induscabos,Cabo Epronax Slim 105,23.5
+25 kV,120,Induscabos,Cabo Epronax Slim 105,24.9
+35 kV,50,Induscabos,Cabo Epronax Slim 105,25.7
+35 kV,70,Induscabos,Cabo Epronax Slim 105,25.8
+35 kV,95,Induscabos,Cabo Epronax Slim 105,27.5
+35 kV,120,Induscabos,Cabo Epronax Slim 105,28.9
+35 kV,150,Induscabos,Cabo Epronax Slim 105,30.0
+35 kV,185,Induscabos,Cabo Epronax Slim 105,29.7
+35 kV,240,Induscabos,Cabo Epronax Slim 105,32.2
+35 kV,300,Induscabos,Cabo Epronax Slim 105,34.7
+35 kV,400,Induscabos,Cabo Epronax Slim 105,37.5
+35 kV,500,Induscabos,Cabo Epronax Slim 105,40.6
+15 kV,16,Induscabos,Cabo Epronax AL Slim 105,13.0
+15 kV,25,Induscabos,Cabo Epronax AL Slim 105,13.2
+15 kV,35,Induscabos,Cabo Epronax AL Slim 105,14.3
+15 kV,50,Induscabos,Cabo Epronax AL Slim 105,15.5
+15 kV,70,Induscabos,Cabo Epronax AL Slim 105,17.1
+15 kV,95,Induscabos,Cabo Epronax AL Slim 105,19.0
+15 kV,120,Induscabos,Cabo Epronax AL Slim 105,20.4
+15 kV,150,Induscabos,Cabo Epronax AL Slim 105,22.0
+15 kV,185,Induscabos,Cabo Epronax AL Slim 105,23.5
+15 kV,240,Induscabos,Cabo Epronax AL Slim 105,26.7
+15 kV,300,Induscabos,Cabo Epronax AL Slim 105,28.7
+15 kV,400,Induscabos,Cabo Epronax AL Slim 105,31.5
+15 kV,500,Induscabos,Cabo Epronax AL Slim 105,34.4
+25 kV,35,Induscabos,Cabo Epronax AL Slim 105,20.7
+25 kV,50,Induscabos,Cabo Epronax AL Slim 105,20.5
+25 kV,70,Induscabos,Cabo Epronax AL Slim 105,22.1
+25 kV,95,Induscabos,Cabo Epronax AL Slim 105,24.0
+25 kV,120,Induscabos,Cabo Epronax AL Slim 105,25.4
+25 kV,150,Induscabos,Cabo Epronax AL Slim 105,27.0
+25 kV,185,Induscabos,Cabo Epronax AL Slim 105,28.5
+25 kV,240,Induscabos,Cabo Epronax AL Slim 105,29.7
+25 kV,300,Induscabos,Cabo Epronax AL Slim 105,31.7
+25 kV,400,Induscabos,Cabo Epronax AL Slim 105,34.5
+25 kV,500,Induscabos,Cabo Epronax AL Slim 105,37.4
+35 kV,50,Induscabos,Cabo Epronax AL Slim 105,25.9
+35 kV,70,Induscabos,Cabo Epronax AL Slim 105,26.1
+35 kV,95,Induscabos,Cabo Epronax AL Slim 105,28.0
+35 kV,120,Induscabos,Cabo Epronax AL Slim 105,29.4
+35 kV,150,Induscabos,Cabo Epronax AL Slim 105,31.0
+35 kV,185,Induscabos,Cabo Epronax AL Slim 105,30.5
+35 kV,240,Induscabos,Cabo Epronax AL Slim 105,32.7
+35 kV,300,Induscabos,Cabo Epronax AL Slim 105,34.7
+35 kV,400,Induscabos,Cabo Epronax AL Slim 105,37.5
+35 kV,500,Induscabos,Cabo Epronax AL Slim 105,40.4
+15 kV,25,Induscabos,Cabo Epronax 105,16.2
+15 kV,35,Induscabos,Cabo Epronax 105,17.3
+15 kV,50,Induscabos,Cabo Epronax 105,18.5
+15 kV,70,Induscabos,Cabo Epronax 105,19.8
+15 kV,95,Induscabos,Cabo Epronax 105,21.5
+15 kV,120,Induscabos,Cabo Epronax 105,22.9
+15 kV,150,Induscabos,Cabo Epronax 105,24.0
+15 kV,185,Induscabos,Cabo Epronax 105,25.7
+15 kV,240,Induscabos,Cabo Epronax 105,28.6
+15 kV,300,Induscabos,Cabo Epronax 105,30.7
+15 kV,400,Induscabos,Cabo Epronax 105,33.5
+15 kV,500,Induscabos,Cabo Epronax 105,36.6
+15 kV,25,Induscabos,Cabo Epronax 105,16.2
+15 kV,35,Induscabos,Cabo Epronax 105,17.3
+15 kV,50,Induscabos,Cabo Epronax 105,18.5
+15 kV,70,Induscabos,Cabo Epronax 105,19.8
+15 kV,95,Induscabos,Cabo Epronax 105,21.5
+15 kV,120,Induscabos,Cabo Epronax 105,22.9
+15 kV,150,Induscabos,Cabo Epronax 105,24.0
+15 kV,185,Induscabos,Cabo Epronax 105,25.7
+15 kV,240,Induscabos,Cabo Epronax 105,28.6
+15 kV,300,Induscabos,Cabo Epronax 105,30.7
+15 kV,400,Induscabos,Cabo Epronax 105,33.5
+15 kV,500,Induscabos,Cabo Epronax 105,36.6
+25 kV,50,Induscabos,Cabo Epronax 105,23.1
+25 kV,70,Induscabos,Cabo Epronax 105,24.4
+25 kV,95,Induscabos,Cabo Epronax 105,26.1
+25 kV,120,Induscabos,Cabo Epronax 105,27.5
+25 kV,150,Induscabos,Cabo Epronax 105,28.6
+25 kV,185,Induscabos,Cabo Epronax 105,30.3
+25 kV,240,Induscabos,Cabo Epronax 105,33.2
+25 kV,300,Induscabos,Cabo Epronax 105,35.3
+25 kV,400,Induscabos,Cabo Epronax 105,38.1
+25 kV,500,Induscabos,Cabo Epronax 105,41.2
+35 kV,50,Induscabos,Cabo Epronax 105,27.1
+35 kV,70,Induscabos,Cabo Epronax 105,28.4
+35 kV,95,Induscabos,Cabo Epronax 105,30.1
+35 kV,120,Induscabos,Cabo Epronax 105,31.5
+35 kV,150,Induscabos,Cabo Epronax 105,32.6
+35 kV,185,Induscabos,Cabo Epronax 105,34.3
+35 kV,240,Induscabos,Cabo Epronax 105,37.2
+35 kV,300,Induscabos,Cabo Epronax 105,39.3
+35 kV,400,Induscabos,Cabo Epronax 105,42.1
+35 kV,500,Induscabos,Cabo Epronax 105,45.2
+15 kV,25,Induscabos,Cabo Epronax AL 105,16.2
+15 kV,35,Induscabos,Cabo Epronax AL 105,17.3
+15 kV,50,Induscabos,Cabo Epronax AL 105,18.5
+15 kV,70,Induscabos,Cabo Epronax AL 105,20.1
+15 kV,95,Induscabos,Cabo Epronax AL 105,22.0
+15 kV,120,Induscabos,Cabo Epronax AL 105,23.4
+15 kV,150,Induscabos,Cabo Epronax AL 105,25.0
+15 kV,185,Induscabos,Cabo Epronax AL 105,26.5
+15 kV,240,Induscabos,Cabo Epronax AL 105,28.7
+15 kV,300,Induscabos,Cabo Epronax AL 105,30.7
+15 kV,400,Induscabos,Cabo Epronax AL 105,33.5
+15 kV,500,Induscabos,Cabo Epronax AL 105,36.4
+25 kV,50,Induscabos,Cabo Epronax AL 105,23.1
+25 kV,70,Induscabos,Cabo Epronax AL 105,24.7
+25 kV,95,Induscabos,Cabo Epronax AL 105,26.6
+25 kV,120,Induscabos,Cabo Epronax AL 105,28.0
+25 kV,150,Induscabos,Cabo Epronax AL 105,29.6
+25 kV,185,Induscabos,Cabo Epronax AL 105,31.1
+25 kV,240,Induscabos,Cabo Epronax AL 105,33.3
+25 kV,300,Induscabos,Cabo Epronax AL 105,35.3
+25 kV,400,Induscabos,Cabo Epronax AL 105,38.1
+25 kV,500,Induscabos,Cabo Epronax AL 105,41.0
+15 kV,25,Induscabos,Cabo Epronax 105,16.2
+15 kV,35,Induscabos,Cabo Epronax 105,17.3
+15 kV,50,Induscabos,Cabo Epronax 105,18.5
+15 kV,70,Induscabos,Cabo Epronax 105,19.8
+15 kV,95,Induscabos,Cabo Epronax 105,21.5
+15 kV,120,Induscabos,Cabo Epronax 105,22.9
+15 kV,150,Induscabos,Cabo Epronax 105,24.0
+15 kV,185,Induscabos,Cabo Epronax 105,25.7
+15 kV,240,Induscabos,Cabo Epronax 105,28.6
+15 kV,300,Induscabos,Cabo Epronax 105,30.7
+15 kV,400,Induscabos,Cabo Epronax 105,33.5
+15 kV,500,Induscabos,Cabo Epronax 105,36.6
+25 kV,50,Induscabos,Cabo Epronax 105,23.1
+25 kV,70,Induscabos,Cabo Epronax 105,24.4
+25 kV,95,Induscabos,Cabo Epronax 105,26.1
+25 kV,120,Induscabos,Cabo Epronax 105,27.5
+25 kV,150,Induscabos,Cabo Epronax 105,28.6
+25 kV,185,Induscabos,Cabo Epronax 105,30.3
+25 kV,240,Induscabos,Cabo Epronax 105,33.2
+25 kV,300,Induscabos,Cabo Epronax 105,35.3
+25 kV,400,Induscabos,Cabo Epronax 105,38.1
+25 kV,500,Induscabos,Cabo Epronax 105,41.2
+35 kV,50,Induscabos,Cabo Epronax 105,27.1
+35 kV,70,Induscabos,Cabo Epronax 105,28.4
+35 kV,95,Induscabos,Cabo Epronax 105,30.1
+35 kV,120,Induscabos,Cabo Epronax 105,31.5
+35 kV,150,Induscabos,Cabo Epronax 105,32.6
+35 kV,185,Induscabos,Cabo Epronax 105,34.3
+35 kV,240,Induscabos,Cabo Epronax 105,37.2
+35 kV,300,Induscabos,Cabo Epronax 105,39.3
+35 kV,400,Induscabos,Cabo Epronax 105,42.1
+35 kV,500,Induscabos,Cabo Epronax 105,45.2
+15 kV,35,Induscabos,Cabo Indulink,17.3
+15 kV,50,Induscabos,Cabo Indulink,18.5
+15 kV,70,Induscabos,Cabo Indulink,19.8
+15 kV,95,Induscabos,Cabo Indulink,21.5
+15 kV,120,Induscabos,Cabo Indulink,22.9
+15 kV,150,Induscabos,Cabo Indulink,24.0
+15 kV,185,Induscabos,Cabo Indulink,25.7
+15 kV,240,Induscabos,Cabo Indulink,28.6
+15 kV,300,Induscabos,Cabo Indulink,30.7
+15 kV,400,Induscabos,Cabo Indulink,33.5
+15 kV,500,Induscabos,Cabo Indulink,36.6
+25 kV,50,Induscabos,Cabo Indulink,23.1
+25 kV,70,Induscabos,Cabo Indulink,24.4
+25 kV,95,Induscabos,Cabo Indulink,26.1
+25 kV,120,Induscabos,Cabo Indulink,27.5
+25 kV,150,Induscabos,Cabo Indulink,28.6
+25 kV,185,Induscabos,Cabo Indulink,30.3
+25 kV,240,Induscabos,Cabo Indulink,33.2
+25 kV,300,Induscabos,Cabo Indulink,35.3
+25 kV,400,Induscabos,Cabo Indulink,38.1
+25 kV,500,Induscabos,Cabo Indulink,41.2
+35 kV,50,Prysmian,Cabo Eprotenax Compact,25.9
+35 kV,70,Prysmian,Cabo Eprotenax Compact,26.3
+35 kV,95,Prysmian,Cabo Eprotenax Compact,27.8
+35 kV,120,Prysmian,Cabo Eprotenax Compact,29.1
+35 kV,150,Prysmian,Cabo Eprotenax Compact,30.5
+35 kV,185,Prysmian,Cabo Eprotenax Compact,30.5
+35 kV,240,Prysmian,Cabo Eprotenax Compact,32.6
+35 kV,300,Prysmian,Cabo Eprotenax Compact,35.0
+35 kV,400,Prysmian,Cabo Eprotenax Compact,37.8
+35 kV,500,Prysmian,Cabo Eprotenax Compact,41.0
+25 kV,35,Prysmian,Cabo Eprotenax Compact,20.9
+25 kV,50,Prysmian,Cabo Eprotenax Compact,20.5
+25 kV,70,Prysmian,Cabo Eprotenax Compact,22.3
+25 kV,95,Prysmian,Cabo Eprotenax Compact,23.8
+25 kV,120,Prysmian,Cabo Eprotenax Compact,25.1
+25 kV,150,Prysmian,Cabo Eprotenax Compact,26.5
+25 kV,185,Prysmian,Cabo Eprotenax Compact,28.5
+25 kV,240,Prysmian,Cabo Eprotenax Compact,29.6
+25 kV,300,Prysmian,Cabo Eprotenax Compact,32.0
+25 kV,400,Prysmian,Cabo Eprotenax Compact,34.8
+25 kV,500,Prysmian,Cabo Eprotenax Compact,38.0
+15 kV,16,Prysmian,Cabo Eprotenax Compact,13.1
+15 kV,25,Prysmian,Cabo Eprotenax Compact,13.1
+15 kV,35,Prysmian,Cabo Eprotenax Compact,14.2
+15 kV,50,Prysmian,Cabo Eprotenax Compact,15.3
+15 kV,70,Eprotenax,Cabo Eprotenax Compact,17.1
+15 kV,95,Prysmian,Cabo Eprotenax Compact,18.6
+15 kV,120,Prysmian,Cabo Eprotenax Compact,19.9
+15 kV,150,Prysmian,Cabo Eprotenax Compact,21.3
+15 kV,185,Prysmian,Cabo Eprotenax Compact,23.3
+15 kV,240,Prysmian,Cabo Eprotenax Compact,26.5
+15 kV,300,Prysmian,Cabo Eprotenax Compact,28.9
+15 kV,400,Prysmian,Cabo Eprotenax Compact,31.7
+15 kV,500,Prysmian,Cabo Eprotenax Compact,34.8
+35 kV,50,Prysmian,Cabo Voltalene Wind,27.0
+35 kV,70,Prysmian,Cabo Voltalene Wind,28.9
+35 kV,95,Prysmian,Cabo Voltalene Wind,30.4
+35 kV,120,Prysmian,Cabo Voltalene Wind,31.7
+35 kV,150,Prysmian,Cabo Voltalene Wind,33.1
+35 kV,185,Prysmian,Cabo Voltalene Wind,35.1
+35 kV,240,Prysmian,Cabo Voltalene Wind,37.2
+35 kV,300,Prysmian,Cabo Voltalene Wind,39.7
+35 kV,400,Prysmian,Cabo Voltalene Wind,42.4
+35 kV,500,Prysmian,Cabo Voltalene Wind,45.6
+35 kV,630,Prysmian,Cabo Voltalene Wind,50.0
+35 kV,50,Prysmian,Cabo Voltalene Wind,27.0
+35 kV,70,Prysmian,Cabo Voltalene Wind,28.9
+35 kV,95,Prysmian,Cabo Voltalene Wind,29.7
+35 kV,120,Prysmian,Cabo Voltalene Wind,31.7
+35 kV,150,Prysmian,Cabo Voltalene Wind,33.1
+35 kV,185,Prysmian,Cabo Voltalene Wind,34.4
+35 kV,240,Prysmian,Cabo Voltalene Wind,37.2
+35 kV,300,Prysmian,Cabo Voltalene Wind,39.7
+35 kV,400,Prysmian,Cabo Voltalene Wind,42.4
+35 kV,500,Prysmian,Cabo Voltalene Wind,45.5
+35 kV,630,Prysmian,Cabo Voltalene Wind,50.0
+35 kV,50,Prysmian,Cabo Voltalene Wind,27.1
+35 kV,70,Prysmian,Cabo Voltalene Wind,28.9
+35 kV,95,Prysmian,Cabo Voltalene Wind,30.4
+35 kV,120,Prysmian,Cabo Voltalene Wind,31.7
+35 kV,150,Prysmian,Cabo Voltalene Wind,33.1
+35 kV,185,Prysmian,Cabo Voltalene Wind,35.1
+35 kV,240,Prysmian,Cabo Voltalene Wind,37.2
+35 kV,300,Prysmian,Cabo Voltalene Wind,39.7
+35 kV,400,Prysmian,Cabo Voltalene Wind,42.4
+35 kV,500,Prysmian,Cabo Voltalene Wind,45.5
+35 kV,630,Prysmian,Cabo Voltalene Wind,50.0
+35 kV,50,Conduspar,Cabo Voltalene Wind,27.0
+35 kV,70,Conduspar,Cabo Voltalene Wind,28.9
+35 kV,95,Conduspar,Cabo Voltalene Wind,30.4
+35 kV,120,Conduspar,Cabo Voltalene Wind,31.7
+35 kV,150,Conduspar,Cabo Voltalene Wind,33.1
+35 kV,185,Conduspar,Cabo Voltalene Wind,35.1
+35 kV,240,Conduspar,Cabo Voltalene Wind,37.2
+35 kV,300,Conduspar,Cabo Voltalene Wind,39.7
+35 kV,400,Conduspar,Cabo Voltalene Wind,42.4
+35 kV,500,Conduspar,Cabo Voltalene Wind,45.6
+35 kV,630,Conduspar,Cabo Voltalene Wind,50.0
+35 kV,50,Conduspar,Cabo Voltalene Wind,27.0
+35 kV,70,Conduspar,Cabo Voltalene Wind,28.9
+35 kV,95,Conduspar,Cabo Voltalene Wind,29.7
+35 kV,120,Conduspar,Cabo Voltalene Wind,31.7
+35 kV,150,Conduspar,Cabo Voltalene Wind,33.1
+35 kV,185,Conduspar,Cabo Voltalene Wind,34.4
+35 kV,240,Conduspar,Cabo Voltalene Wind,37.2
+35 kV,300,Conduspar,Cabo Voltalene Wind,39.7
+35 kV,400,Conduspar,Cabo Voltalene Wind,42.4
+35 kV,500,Conduspar,Cabo Voltalene Wind,45.5
+35 kV,630,Conduspar,Cabo Voltalene Wind,50.0
+35 kV,50,Conduspar,Cabo Voltalene Wind,27.1
+35 kV,70,Conduspar,Cabo Voltalene Wind,28.9
+35 kV,95,Conduspar,Cabo Voltalene Wind,30.4
+35 kV,120,Conduspar,Cabo Voltalene Wind,31.7
+35 kV,150,Conduspar,Cabo Voltalene Wind,33.1
+35 kV,185,Conduspar,Cabo Voltalene Wind,35.1
+35 kV,240,Conduspar,Cabo Voltalene Wind,37.2
+35 kV,300,Conduspar,Cabo Voltalene Wind,39.7
+35 kV,400,Conduspar,Cabo Voltalene Wind,42.4
+35 kV,500,Conduspar,Cabo Voltalene Wind,45.5
+35 kV,630,Conduspar,Cabo Voltalene Wind,50.0
+25 kV,35,Conduspar,Cabo Unipolar 15/25 kV,20.6
+25 kV,50,Conduspar,Cabo Unipolar 15/25 kV,20.4
+25 kV,70,Conduspar,Cabo Unipolar 15/25 kV,21.8
+25 kV,95,Conduspar,Cabo Unipolar 15/25 kV,23.5
+25 kV,120,Conduspar,Cabo Unipolar 15/25 kV,25.1
+25 kV,150,Conduspar,Cabo Unipolar 15/25 kV,26.2
+25 kV,185,Conduspar,Cabo Unipolar 15/25 kV,28.0
+25 kV,240,Conduspar,Cabo Unipolar 15/25 kV,29.4
+25 kV,300,Conduspar,Cabo Unipolar 15/25 kV,31.4
+25 kV,400,Conduspar,Cabo Unipolar 15/25 kV,34.2
+25 kV,500,Conduspar,Cabo Unipolar 15/25 kV,37.7
+35 kV,50,Conduspar,Cabo Unipolar 20/35 kV,25.8
+35 kV,70,Conduspar,Cabo Unipolar 20/35 kV,25.8
+35 kV,95,Conduspar,Cabo Unipolar 20/35 kV,27.5
+35 kV,120,Conduspar,Cabo Unipolar 20/35 kV,29.1
+35 kV,150,Conduspar,Cabo Unipolar 20/35 kV,30.2
+35 kV,185,Conduspar,Cabo Unipolar 20/35 kV,30.0
+35 kV,240,Conduspar,Cabo Unipolar 20/35 kV,32.4
+35 kV,300,Conduspar,Cabo Unipolar 20/35 kV,34.4
+35 kV,400,Conduspar,Cabo Unipolar 20/35 kV,37.2
+35 kV,500,Conduspar,Cabo Unipolar 20/35 kV,40.7
+15 kV,16,Conduspar,Cabo Unipolar kV,12.9
+15 kV,25,Conduspar,Cabo Unipolar kV,13.1
+15 kV,35,Conduspar,Cabo Unipolar kV,14.2
+15 kV,50,Conduspar,Cabo Unipolar kV,15.4
+15 kV,70,Conduspar,Cabo Unipolar kV,16.8
+15 kV,95,Conduspar,Cabo Unipolar kV,18.6
+15 kV,120,Conduspar,Cabo Unipolar kV,19.9
+15 kV,150,Conduspar,Cabo Unipolar kV,21.3
+15 kV,185,Conduspar,Cabo Unipolar kV,23.3
+15 kV,240,Conduspar,Cabo Unipolar kV,26.5
+15 kV,300,Conduspar,Cabo Unipolar kV,28.9
+15 kV,400,Conduspar,Cabo Unipolar kV,31.7
+15 kV,500,Conduspar,Cabo Unipolar kV,34.8
+15 kV,35,Conduspar,Cabo MTX-RA 15 kV,14.2
+15 kV,35,Conduspar,Cabo MTX-RA 15 kV,14.2
+15 kV,50,Conduspar,Cabo MTX-RA 15 kV,15.4
+15 kV,70,Conduspar,Cabo MTX-RA 15 kV,16.9
+15 kV,95,Conduspar,Cabo MTX-RA 15 kV,18.7
+15 kV,120,Conduspar,Cabo MTX-RA 15 kV,20.2
+15 kV,150,Conduspar,Cabo MTX-RA 15 kV,21.6
+15 kV,185,Conduspar,Cabo MTX-RA 15 kV,23.4
+15 kV,240,Conduspar,Cabo MTX-RA 15 kV,26.5
+35 kV,50,Conduspar,Cabo Unipolar 20/35 kV,27.1
+35 kV,70,Conduspar,Cabo Unipolar 20/35 kV,28.9
+35 kV,95,Conduspar,Cabo Unipolar 20/35 kV,30.9
+35 kV,120,Conduspar,Cabo Unipolar 20/35 kV,32.4
+35 kV,150,Conduspar,Cabo Unipolar 20/35 kV,33.9
+35 kV,185,Conduspar,Cabo Unipolar 20/35 kV,35.6
+35 kV,240,Conduspar,Cabo Unipolar 20/35 kV,37.8
+35 kV,300,Conduspar,Cabo Unipolar 20/35 kV,40.2
+35 kV,400,Conduspar,Cabo Unipolar 20/35 kV,43.3
+35 kV,500,Conduspar,Cabo Unipolar 20/35 kV,46.0
+35 kV,630,Conduspar,Cabo Unipolar 20/35 kV,49.7
+15 kV,35,Altec,Cabo ALTEC,16.95
+15 kV,50,Altec,Cabo ALTEC,18.22
+15 kV,70,Altec,Cabo ALTEC,19.80
+15 kV,95,Altec,Cabo ALTEC,21.70
+15 kV,120,Altec,Cabo ALTEC,23.00
+15 kV,150,Altec,Cabo ALTEC,24.45
+15 kV,185,Altec,Cabo ALTEC,26.25
+15 kV,240,Altec,Cabo ALTEC,28.50
+15 kV,300,Altec,Cabo ALTEC,31.00
+15 kV,400,Altec,Cabo ALTEC,33.80
+15 kV,500,Altec,Cabo ALTEC,36.60
+35 kV,50,Altec,Cabo Coppertec,26.8
+35 kV,70,Altec,Cabo Coppertec,28.4
+35 kV,95,Altec,Cabo Coppertec,30.3
+35 kV,120,Altec,Cabo Coppertec,31.6
+35 kV,150,Altec,Cabo Coppertec,33.1
+35 kV,185,Altec,Cabo Coppertec,34.9
+35 kV,240,Altec,Cabo Coppertec,37.1
+35 kV,300,Altec,Cabo Coppertec,39.6
+35 kV,400,Altec,Cabo Coppertec,42.4
+35 kV,500,Altec,Cabo Coppertec,45.2
