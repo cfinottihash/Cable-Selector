@@ -81,7 +81,7 @@ else:
         d_iso   = float(row.iloc[0]["OD_iso_mm"])
         d_cond  = float(row.iloc[0]["D_cond_mm"])
         t_iso_r = float(row.iloc[0]["T_iso_mm"])
-        st.info(f"Ø sobre isolação REAL: **{d_iso:.1f} mm ± {tolerance} mm**")
+        st.info(f"Ø sobre isolação ESTIMADA: **{d_iso:.1f} mm ± {tolerance} mm**")
         st.caption(f"Ø condutor: {d_cond} mm | Espessura isolação: {t_iso_r} mm")
         used_real = True
     else:                                           # predição estatística
