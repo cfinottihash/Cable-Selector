@@ -93,7 +93,7 @@ else:
 
 # alerta permanente
 st.markdown(
-    "<small style='color:#bbb'>⚠️ Sempre confirme com o cliente os dados reais do cabo antes de concluir a compra.</small>",
+    "<small style='color:#bbb'>⚠️ Sempre confirme com o cliente os dados reais do cabo!.</small>",
     unsafe_allow_html=True
 )
 
