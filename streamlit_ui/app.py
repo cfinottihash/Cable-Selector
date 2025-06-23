@@ -43,7 +43,7 @@ if logo.exists():
 st.title("Protótipo — Seletor de Cold-Shrink Termination")
 
 # ───────────────────── inputs ─────────────────────
-st.header("Seleção do cabo")
+st.header("Passo 1: Seleção do cabo")
 
 know_iso = st.radio(
     "Você já sabe o Ø sobre isolação do cabo?",
@@ -99,7 +99,7 @@ st.markdown(
 if "search_done" not in st.session_state:
     st.session_state.search_done = False
 
-if st.button("Buscar Terminação"):
+if st.button("Passo 2: Clique aqui para Buscar Terminações Compatíveis"):
     st.session_state.search_done = True
 
 if st.session_state.search_done:
@@ -124,14 +124,14 @@ if st.session_state.search_done:
                 )
 
         # ───── sugestão de lug SEM reiniciar processo ─────
-        st.header("Seleção de terminal (lug)")
-        conn_ui = st.selectbox("Tipo de Terminal:", ["Compressão", "Torquimétrico"], key="tipo_lug")
+        st.header("Passo 3: Seleção de terminal (lug)")
+        conn_ui = st.selectbox("Selecione o Tipo de Terminal:", ["Compressão", "Torquimétrico"], key="tipo_lug")
         kind    = "compression" if conn_ui == "Compressão" else "shear-bolt"
 
         mat = None
         if kind == "compression":
             mat = st.selectbox(
-                "Material do terminal:",
+                "Selecione o Material do terminal:",
                 sorted(df_conn["Material"].dropna().unique()),
                 key="material_lug"
             )
