@@ -40,63 +40,66 @@ st.session_state.setdefault("searched", False)
 
 # ── input ──────────────────────────────────────────────────────────────
 st.header("Seleção do cabo")
-cabo_tensao = st.selectbox("Classe de tensão do cabo:", cabos_tensoes)
-cabo_marca = st.selectbox("Marca do cabo (opcional):", ["Todas"] + marcas)
-# Filtra dataframe de acordo
-df_filtrado = df_cable[df_cable["Cable Voltage"] == cabo_tensao]
-if cabo_marca != "Todas":
-    df_filtrado = df_filtrado[df_filtrado["Brand"] == cabo_marca]
-bitolas_disp = sorted(df_filtrado["S_mm2"].astype(float).unique())
-s_mm2 = st.selectbox("Seção nominal (mm²):", bitolas_disp)
 
-# Define a tensão de terminação compatível
-tensao_terminacao = TENS_MAP.get(cabo_tensao, "15 kV")
-reinforced = False
-if tensao_terminacao == "35 kV":
-    reinforced = st.checkbox("Isolação reforçada (8,8 mm) — cabos eólicos")
+# 1) Ask up front if they know the real insulation diameter
+know_iso = st.radio(
+    "Você já sabe o Ø sobre isolação do cabo?",
+    ("Não, preciso estimar pela bitola", "Sim, digitar valor real")
+)
 
-# Tenta buscar dados reais
-linha = df_filtrado[df_filtrado["S_mm2"].astype(float) == float(s_mm2)]
-usou_real = False
-if not linha.empty:
-    d_iso = float(linha.iloc[0]["OD_iso_mm"])
-    d_cond = float(linha.iloc[0]["D_cond_mm"])
-    t_iso = float(linha.iloc[0]["T_iso_mm"])
-    tolerance = tol(tensao_terminacao)
-    st.info(f"Ø sobre isolação ESTIMADA: **{d_iso} mm ± {tolerance} mm**")
-    st.caption(f"Ø condutor: {d_cond} mm | Espessura isolação: {t_iso} mm")
-    usou_real = True
+if know_iso.startswith("Sim"):
+    # direct input of the real diameter
+    d_iso = st.number_input(
+        "Ø sobre isolação (mm)", min_value=0.0, step=0.1
+    )
+    tolerance = 0.0
+    st.info(f"Ø sobre isolação informado: **{d_iso:.1f} mm**")
+    st.caption("Você forneceu o valor real que tem do cabo em campo.")
+    used_real = True
+
 else:
-    # fallback para predição estatística
-    d_iso = by_bitola(tensao_terminacao, float(s_mm2), reinforced=reinforced)
-    tolerance = tol(tensao_terminacao)
-    st.warning(f"Ø sobre isolação estimado: **{d_iso} mm ± {tolerance} mm**")
-    st.caption("Não há dado exato para essa bitola/marca. Estimado pela curva estatística.")
+    # brand + section → estimate path
+    used_real = False
 
-if st.button("Buscar Terminação"):
-    st.session_state.searched = True
+    cabo_tensao = st.selectbox("Classe de tensão do cabo:", cabos_tensoes)
+    cabo_marca = st.selectbox("Marca do cabo (opcional):", ["Todas"] + marcas)
 
-# ── results ─────────────────────────────────────────────────────────────
-if st.session_state.searched:
-    # Aplica tolerância para buscar terminações "potenciais"
-    match = df_csto[
-        (df_csto["Voltage Class"] == tensao_terminacao) &
-        (df_csto["OD Min (mm)"] <= d_iso + tolerance) &
-        (df_csto["OD Max (mm)"] >= d_iso - tolerance)
-    ]
-    if match.empty:
-        st.error("Nenhuma terminação encontrada.")
-        st.stop()
+    df_filtrado = df_cable[df_cable["Cable Voltage"] == cabo_tensao]
+    if cabo_marca != "Todas":
+        df_filtrado = df_filtrado[df_filtrado["Brand"] == cabo_marca]
 
-    st.success("Terminação(s) compatível(is):")
-    st.table(match[["Part Number", "OD Min (mm)", "OD Max (mm)"]])
+    bitolas_disp = sorted(df_filtrado["S_mm2"].astype(float).unique())
+    s_mm2 = st.selectbox("Seção nominal (mm²):", bitolas_disp)
 
-    # Aviso se usou estimativa estatística
-    if not usou_real:
+    # lookup real if exists else estimate
+    linha = df_filtrado[df_filtrado["S_mm2"].astype(float) == float(s_mm2)]
+    tensao_term = TENS_MAP[cabo_tensao]
+    tolerance = tol(tensao_term)
+
+    if not linha.empty:
+        # use catalog value
+        d_iso = float(linha.iloc[0]["OD_iso_mm"])
+        d_cond = float(linha.iloc[0]["D_cond_mm"])
+        t_iso  = float(linha.iloc[0]["T_iso_mm"])
+        st.info(f"Ø sobre isolação REAL: **{d_iso:.1f} mm**")
+        st.caption(f"Ø condutor: {d_cond} mm | Espessura isolação: {t_iso} mm")
+        used_real = True
+    else:
+        # statistical estimate
+        d_iso = by_bitola(tensao_term, float(s_mm2))
+        st.warning(
+            f"Ø sobre isolação ESTIMADA: **{d_iso:.1f} mm ± {tolerance} mm**"
+        )
+        st.caption(
+            "Não há dado exato para essa bitola/marca. "
+            "Estimado pela curva estatística."
+        )
+        # 🔴 new “always confirm” reminder:
         st.markdown(
             "<div style='color:#900; background:#fee; padding:8px; "
-            "border-radius:4px; margin-top:16px;'>"
-            "⚠️ <strong>Atenção:</strong> Ø sobre isolação estimado. Confirme o diâmetro real do cabo com o cliente antes da compra."
+            "border-radius:4px; margin-top:8px;'>"
+            "⚠️ <strong>Atenção:</strong> Sempre confirme com o cliente "
+            "os dados reais do cabo antes de finalizar a compra."
             "</div>",
             unsafe_allow_html=True
         )
