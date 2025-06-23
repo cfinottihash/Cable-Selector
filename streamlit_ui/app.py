@@ -63,7 +63,7 @@ if not linha.empty:
     d_cond = float(linha.iloc[0]["D_cond_mm"])
     t_iso = float(linha.iloc[0]["T_iso_mm"])
     tolerance = tol(tensao_terminacao)
-    st.info(f"Ø sobre isolação REAL: **{d_iso} mm ± {tolerance} mm**")
+    st.info(f"Ø sobre isolação ESTIMADA: **{d_iso} mm ± {tolerance} mm**")
     st.caption(f"Ø condutor: {d_cond} mm | Espessura isolação: {t_iso} mm")
     usou_real = True
 else:
