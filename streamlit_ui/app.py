@@ -102,35 +102,37 @@ if st.button("Buscar Terminação"):
         st.error(f"Nenhuma terminação {family} encontrada.")
         st.stop()
 
-  # 🔽 NOVO: formata 1 casa decimal nos campos de OD
-    display_cols = ["Part Number", "OD Min (mm)", "OD Max (mm)"]
-    matches_fmt = matches.copy()
-    matches_fmt["OD Min (mm)"] = matches_fmt["OD Min (mm)"].round(1)
-    matches_fmt["OD Max (mm)"] = matches_fmt["OD Max (mm)"].round(1)
-    st.success(f"Terminação(s) {family} compatível(is):")
-    st.table(matches[["Part Number","OD Min (mm)","OD Max (mm)"]])
+    # Resultado dentro de um expander para não inundar a tela
+    with st.expander(f"Ver terminações {family} compatíveis"):
+        st.success(f"Terminação(s) {family} compatível(is):")
+        st.table(
+            matches.assign(**{
+                "OD Min (mm)": matches["OD Min (mm)"].round(1),
+                "OD Max (mm)": matches["OD Max (mm)"].round(1)
+            })[
+                ["Part Number","OD Min (mm)","OD Max (mm)"]
+            ]
+        )
 
-    for _, r in matches.iterrows():
-        if not (r["OD Min (mm)"] <= d_iso <= r["OD Max (mm)"]):
-            st.warning(f"Ø {d_iso:.1f} mm fora do nominal "
-                       f"({r['OD Min (mm)']}–{r['OD Max (mm)']} mm) "
-                       f"– aceito pela tolerância ±{tolerance} mm. Verifique encaixe.")
+        # alertas de tolerância
+        for _, r in matches.iterrows():
+            if not (r["OD Min (mm)"] <= d_iso <= r["OD Max (mm)"]):
+                st.warning(
+                    f"Ø {d_iso:.1f} mm fora do nominal "
+                    f"({r['OD Min (mm)']}–{r['OD Max (mm)']} mm), "
+                    f"aceito pela tolerância ±{tolerance} mm."
+                )
 
-    # ── 3. LUG SUGGESTION (estado persiste) ──────────
-    st.header("Seleção de terminal (lug)")
-    conn_ui = st.selectbox("Tipo de Terminal:", ["Compressão","Torquimétrico"])
-    kind    = "compression" if conn_ui == "Compressão" else "shear-bolt"
+    # ── 3. LUG SUGGESTION ─────────────────────────────
+    with st.expander("Sugestão de terminais (lugs)"):
+        st.header("Seleção de terminal (lug)")
+        conn_ui = st.selectbox("Tipo de Terminal:", ["Compressão","Torquimétrico"])
+        kind    = "compression" if conn_ui == "Compressão" else "shear-bolt"
 
-    mat = st.selectbox("Material do terminal:", LUG_MATERIALS) if kind=="compression" else None
+        mat = st.selectbox("Material do terminal:", LUG_MATERIALS) if kind=="compression" else None
 
-    conn_df = suggest_connector(int(float(s_mm2)), kind, mat)
-
-    if conn_df.empty:
-        st.error("Nenhum terminal/lug encontrado.")
-    else:
-        st.subheader("Lugs compatíveis")
-        st.table(conn_df)
-
-# ── FIM ─────────────────────────────────────────────
-
-
+        conn_df = suggest_connector(int(float(s_mm2)), kind, mat)
+        if conn_df.empty:
+            st.error("Nenhum terminal/lug encontrado.")
+        else:
+            st.table(conn_df)
