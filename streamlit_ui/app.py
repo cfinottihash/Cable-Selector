@@ -34,7 +34,7 @@ st.set_page_config("CST Selector", layout="centered")
 logo = Path(__file__).parent / "assets" / "logo-chardon.png"
 if logo.exists(): st.image(str(logo), width=200)
 st.title("Protótipo — Seletor de Cold-Shrink Termination")
-
+st.session_state.setdefault("searched", False)
 # ── 1. ENTRADAS CABO ───────────────────────────────
 st.header("Seleção do cabo")
 
@@ -89,6 +89,10 @@ st.markdown("<small style='color:#bbb'>⚠️ Sempre confirme com o cliente os d
 
 # ── 2. BUSCA DE TERMINAÇÃO ─────────────────────────
 if st.button("Buscar Terminação"):
+    st.session_state.searched = True
+
+# só entra aqui depois de clicar em "Buscar Terminação"
+if st.session_state.searched:
     df_term = df_csto if env_choice.startswith("Externa") else df_csti
     family  = "CSTO"  if env_choice.startswith("Externa") else "CSTI"
 
@@ -102,7 +106,7 @@ if st.button("Buscar Terminação"):
         st.error(f"Nenhuma terminação {family} encontrada.")
         st.stop()
 
-    # Resultado dentro de um expander para não inundar a tela
+    # Resultado dentro de um expander para não inungdar a tela
     with st.expander(f"Ver terminações {family} compatíveis"):
         st.success(f"Terminação(s) {family} compatível(is):")
         st.table(
