@@ -1,8 +1,10 @@
 # streamlit_ui/app.py
+import streamlit.components.v1 as components
 import sys, os, re
 from pathlib import Path
 import pandas as pd
 import streamlit as st
+
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from tools.iso_estimator     import by_bitola, tol
@@ -87,48 +89,60 @@ else:
 st.markdown("<small style='color:#bbb'>⚠️ Sempre confirme com o cliente os dados reais do cabo!</small>",
             unsafe_allow_html=True)
 
-# ── 2. BUSCA DE TERMINAÇÃO ─────────────────────────
-if st.button("Buscar Terminação"):
-    df_term = df_csto if env_choice.startswith("Externa") else df_csti
-    family  = "CSTO"  if env_choice.startswith("Externa") else "CSTI"
+    # ── 2. BUSCA DE TERMINAÇÃO ─────────────────────────
+    if st.button("Buscar Terminação"):
+        df_term = df_csto if env_choice.startswith("Externa") else df_csti
+        family  = "CSTO"  if env_choice.startswith("Externa") else "CSTI"
 
-    matches = df_term[
-        (df_term["Voltage Class"] == tensao_term) &
-        (df_term["OD Min (mm)"] <= d_iso + tolerance) &
-        (df_term["OD Max (mm)"] >= d_iso - tolerance)
-    ]
+        matches = df_term[
+            (df_term["Voltage Class"] == tensao_term) &
+            (df_term["OD Min (mm)"] <= d_iso + tolerance) &
+            (df_term["OD Max (mm)"] >= d_iso - tolerance)
+        ]
 
-    if matches.empty:
-        st.error(f"Nenhuma terminação {family} encontrada.")
-        st.stop()
-        
-  # 🔽 NOVO: formata 1 casa decimal nos campos de OD
-    display_cols = ["Part Number", "OD Min (mm)", "OD Max (mm)"]
-    matches_fmt = matches.copy()
-    matches_fmt["OD Min (mm)"] = matches_fmt["OD Min (mm)"].round(1)
-    matches_fmt["OD Max (mm)"] = matches_fmt["OD Max (mm)"].round(1)
-    st.success(f"Terminação(s) {family} compatível(is):")
-    st.table(matches[["Part Number","OD Min (mm)","OD Max (mm)"]])
+        if matches.empty():
+            st.error(f"Nenhuma terminação {family} encontrada.")
+            st.stop()
 
-    for _, r in matches.iterrows():
-        if not (r["OD Min (mm)"] <= d_iso <= r["OD Max (mm)"]):
-            st.warning(f"Ø {d_iso:.1f} mm fora do nominal "
-                       f"({r['OD Min (mm)']}–{r['OD Max (mm)']} mm) "
-                       f"– aceito pela tolerância ±{tolerance} mm. Verifique encaixe.")
+        # A) formata 1 casa decimal
+        show = matches.copy()
+        show["OD Min (mm)"] = show["OD Min (mm)"].round(1)
+        show["OD Max (mm)"] = show["OD Max (mm)"].round(1)
 
-    # ── 3. LUG SUGGESTION (estado persiste) ──────────
-    st.header("Seleção de terminal (lug)")
-    conn_ui = st.selectbox("Tipo de Terminal:", ["Compressão","Torquimétrico"])
-    kind    = "compression" if conn_ui == "Compressão" else "shear-bolt"
+        st.success(f"Terminação(s) {family} compatível(is):")
+        st.table(show[["Part Number", "OD Min (mm)", "OD Max (mm)"]])
 
-    mat = st.selectbox("Material do terminal:", LUG_MATERIALS) if kind=="compression" else None
+        # B) rolar até a tabela recém-criada
+        components.html(
+            """
+            <script>
+              setTimeout(() => {
+                const tbl = parent.document.querySelector('div[data-testid="stTable"]');
+                if (tbl) tbl.scrollIntoView({behavior:'smooth', block:'start'});
+              }, 100);
+            </script>
+            """,
+            height=0,
+        )
 
-    conn_df = suggest_connector(int(float(s_mm2)), kind, mat)
+        # aviso se entrou só por tolerância
+        for _, r in matches.iterrows():
+            if not (r["OD Min (mm)"] <= d_iso <= r["OD Max (mm)"]):
+                st.warning(
+                    f"Ø {d_iso:.1f} mm fora do nominal "
+                    f"({r['OD Min (mm)']:.1f}–{r['OD Max (mm)']:.1f} mm) "
+                    f"– aceito pela tolerância ±{tolerance} mm. Verifique encaixe."
+                )
 
-    if conn_df.empty:
-        st.error("Nenhum terminal/lug encontrado.")
-    else:
-        st.subheader("Lugs compatíveis")
-        st.table(conn_df)
+        # ── 3. LUG SUGGESTION ──────────────────────────
+        st.header("Seleção de terminal (lug)")
+        conn_ui = st.selectbox("Tipo de Terminal:", ["Compressão", "Torquimétrico"])
+        kind    = "compression" if conn_ui == "Compressão" else "shear-bolt"
+        mat     = st.selectbox("Material do terminal:", LUG_MATERIALS) if kind=="compression" else None
 
-# ── FIM ─────────────────────────────────────────────
+        conn_df = suggest_connector(int(float(s_mm2)), kind, mat)
+        if conn_df.empty:
+            st.error("Nenhum terminal/lug encontrado.")
+        else:
+            st.subheader("Lugs compatíveis")
+            st.table(conn_df)
