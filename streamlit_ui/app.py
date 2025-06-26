@@ -101,7 +101,12 @@ if st.button("Buscar Terminação"):
     if matches.empty:
         st.error(f"Nenhuma terminação {family} encontrada.")
         st.stop()
-
+        
+  # 🔽 NOVO: formata 1 casa decimal nos campos de OD
+    display_cols = ["Part Number", "OD Min (mm)", "OD Max (mm)"]
+    matches_fmt = matches.copy()
+    matches_fmt["OD Min (mm)"] = matches_fmt["OD Min (mm)"].round(1)
+    matches_fmt["OD Max (mm)"] = matches_fmt["OD Max (mm)"].round(1)
     st.success(f"Terminação(s) {family} compatível(is):")
     st.table(matches[["Part Number","OD Min (mm)","OD Max (mm)"]])
 
