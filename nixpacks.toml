@@ -1,8 +1,0 @@
-  type = "python"
-
-[phases.install]
-command = "pip install -r requirements.txt"
-
-[phases.start]
-# point to your actual script path and the $PORT envvar
-command = "streamlit run streamlit_ui/app.py --server.port $PORT"
